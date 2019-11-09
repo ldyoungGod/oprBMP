@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = demo1.0.0
-DISTDIR = /home/ldyoung/CDemos/C++/oprBMP/build-demo-Desktop_Qt_5_8_0_GCC_64bit-Debug/.tmp/demo1.0.0
+DISTDIR = /home/ldyoung/CDemos/C++/oprBMP/bin/.tmp/demo1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS)  
@@ -204,6 +204,7 @@ DIST          = ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_post.prf \
+		../demo/.qmake.stash \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/default_pre.prf \
@@ -382,6 +383,7 @@ Makefile: ../demo/demo.pro ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qmak
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/default_pre.prf \
@@ -547,6 +549,7 @@ Makefile: ../demo/demo.pro ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qmak
 ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt5.8.0/5.8/gcc_64/mkspecs/features/default_pre.prf:
@@ -604,7 +607,8 @@ compiler_clean:
 
 ####### Compile
 
-main.o: ../demo/main.cpp 
+main.o: ../demo/main.cpp ../demo/COperateBMP.h \
+		../demo/CFileOperate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../demo/main.cpp
 
 COperateBMP.o: ../demo/COperateBMP.cpp ../demo/COperateBMP.h \
